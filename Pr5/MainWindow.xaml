@@ -5,11 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pr5"
         mc:Ignorable="d"
-        Title="Студенты КГАПОУ Авиатехникума" Height="450" Width="800" MinHeight="450" MinWidth="800" FontFamily="Arial Narrow">
+        Title="Студенты КГАПОУ Авиатехникума" Height="450" Width="1122" MinHeight="450" MinWidth="1191" FontFamily="Arial Narrow">
     <Grid>
-        <ScrollViewer ScrollChanged="ScrollViewer_ScrollChanged">
-            <StackPanel Margin="10" x:Name="parent">
-                
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#F5F5F5" Padding="5" BorderBrush="#CCCCCC" BorderThickness="0,0,0,2">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="ФИО:" VerticalAlignment="Center" Margin="0,0,5,0"
+                       Foreground="Black" FontSize="16" FontWeight="DemiBold" Width="46"/>
+                <TextBox x:Name="Input_FIO" VerticalAlignment="Center" Margin="0,0,15,0"
+                         Foreground="Black" FontSize="16" FontWeight="DemiBold" Width="211"
+                         Padding="5" Background="White" BorderBrush="#CCCCCC"/>
+
+                <Label Content="Стипендия:" VerticalAlignment="Center" Margin="8,0,5,0"
+                       Foreground="Black" FontSize="16" FontWeight="DemiBold" Width="82"/>
+                <ComboBox x:Name="Input_scholarship" VerticalAlignment="Center" Margin="0,0,15,0" 
+                          Foreground="Black" FontSize="14" FontWeight="DemiBold" Width="125"
+                          Padding="5" Background="White" BorderBrush="#CCCCCC">
+                    <ComboBoxItem Content="получает"/>
+                    <ComboBoxItem Content="не получает"/>
+                </ComboBox>
+
+                <Label Content="Курс:" VerticalAlignment="Center" Margin="8,0,5,0"
+                       Foreground="Black" FontSize="16" FontWeight="DemiBold" Width="41"/>
+                <ComboBox x:Name="Input_course" VerticalAlignment="Center" Margin="0,0,15,0" 
+                          Foreground="Black" FontSize="14" FontWeight="DemiBold" Width="60"
+                          Padding="5" Background="White" BorderBrush="#CCCCCC">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                </ComboBox>
+                <TextBox x:Name="Input_ImagePath" Margin="5" Width="200"/>
+                <Label Content="Поиск:" VerticalAlignment="Center" Margin="20,0,5,0"
+               Foreground="Black" FontSize="16" FontWeight="DemiBold"/>
+                <TextBox x:Name="SearchBox" VerticalAlignment="Center" Margin="0,0,10,0"
+                 Foreground="Black" FontSize="14" Width="150" Padding="5"
+                 Background="White" BorderBrush="#CCCCCC" TextChanged="SearchBox_TextChanged"/>
+                <Button Width="35" Height="35" VerticalAlignment="Center" Content="+" 
+                        FontSize="20" Margin="50,0,0,0" FontWeight="Bold" Click="PutList"
+                         Foreground="Black"/>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="2" ScrollChanged="ScrollViewer_ScrollChanged" Background="White">
+            <StackPanel Margin="15" x:Name="parent" Orientation="Vertical">
             </StackPanel>
         </ScrollViewer>
     </Grid>

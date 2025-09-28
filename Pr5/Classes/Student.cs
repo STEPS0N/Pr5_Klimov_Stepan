@@ -13,6 +13,7 @@ namespace Pr5.Classes
         public string Surname = "";
         public bool Scholarship = false;
         public int Course = 4;
+        public string ImagePath { get; set; } = "/Images/incognito.jpg";
 
         public Student(string Firstname, string Lastname, string Surname)
         {
@@ -29,6 +30,12 @@ namespace Pr5.Classes
         public Student(string Firstname, string Lastname, string Surname, bool Scholarship, int Course) : this(Firstname, Lastname, Surname, Scholarship)
         {
             this.Course = Course;
+        }
+
+        public Student(string Firstname, string Lastname, string Surname, bool Scholarship, int Course, string ImagePath)
+            : this(Firstname, Lastname, Surname, Scholarship, Course)
+        {
+            this.ImagePath = ImagePath;
         }
 
         public string GetFIO()

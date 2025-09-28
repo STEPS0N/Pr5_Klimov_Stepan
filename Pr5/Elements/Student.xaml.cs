@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pr5.Classes;
 
 namespace Pr5.Elements
 {
@@ -26,6 +27,15 @@ namespace Pr5.Elements
             tb_fio.Content = student.GetFIO();
             tb_scholarship.Content = student.Scholarship ? "Степендия: получает" : "Степендия: не получает";
             tb_course.Content = $"Курс: {student.Course}";
+            try
+            {
+                studentImage.Source = new BitmapImage(new Uri(student.ImagePath, UriKind.RelativeOrAbsolute));
+            }
+            catch
+            {
+                studentImage.Source = new BitmapImage(new Uri("/Images/incognito.png", UriKind.Absolute));
+            }
         }
+
     }
 }
